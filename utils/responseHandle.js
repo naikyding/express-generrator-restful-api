@@ -19,8 +19,8 @@ const errorMessageHandle = (errors) =>
 const errorHandle = ({
   res,
   statusCode = 400,
-  message = '操作失敗',
-  errors,
+  message = '操作失敗, 資料錯誤 or ID 不存在',
+  errors = {},
 }) => {
   res.status(statusCode).json({
     status: 'Error',

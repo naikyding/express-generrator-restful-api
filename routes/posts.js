@@ -44,6 +44,7 @@ router.post('/', async (req, res) => {
     const list = await getPostsHandle(res)
     successHandle({
       res,
+      statusCode: 201,
       data: list,
     })
   } catch ({ errors }) {
@@ -53,17 +54,64 @@ router.post('/', async (req, res) => {
 
 router.delete('/', async (req, res) => {
   try {
-  } catch {}
+    await Post.deleteMany({})
+    const list = await getPostsHandle(res)
+    successHandle({
+      res,
+      statusCode: 201,
+      data: list,
+    })
+  } catch {
+    errorHandle({ res })
+  }
 })
 
 router.delete('/:id', async (req, res) => {
   try {
-  } catch {}
+    const resData = await Post.findByIdAndDelete(req.params.id)
+    if (!resData) throw false
+
+    const list = await getPostsHandle(res)
+    successHandle({
+      res,
+      statusCode: 201,
+      data: list,
+    })
+  } catch {
+    errorHandle({ res })
+  }
 })
 
 router.patch('/:id', async (req, res) => {
   try {
-  } catch {}
+    const id = req.params.id
+    const { name, tags, type, image, content, likes, comments } = req.body
+
+    const updateItem = await Post.findByIdAndUpdate(
+      id,
+      {
+        name,
+        tags,
+        type,
+        image,
+        content,
+        likes,
+        comments,
+      },
+      { runValidators: true }
+    )
+
+    if (!updateItem) throw false
+
+    const list = await getPostsHandle(res)
+    successHandle({
+      res,
+      statusCode: 200,
+      data: list,
+    })
+  } catch ({ errors }) {
+    errorHandle({ res, errors })
+  }
 })
 
 module.exports = router
