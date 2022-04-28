@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "1ba82258-76fe-442c-a0be-335f326a8448",
+		"name": "RestfulAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "查詢",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://express-restful-api-mvc.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"express-restful-api-mvc",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"11111\",\n    \"tags\": \"123\",\n    \"type\": \"person\",\n    \"image\": \"image url\",\n    \"content\": \"CONTENT\",\n    \"likes\": 1,\n    \"comments\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://express-restful-api-mvc.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"express-restful-api-mvc",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "全部刪除",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://express-restful-api-mvc.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"express-restful-api-mvc",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "單筆刪除",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://express-restful-api-mvc.herokuapp.com/posts/:id",
+					"protocol": "https",
+					"host": [
+						"express-restful-api-mvc",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "626a4acf0165275ade30cdcf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"999999\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://express-restful-api-mvc.herokuapp.com/posts/:id",
+					"protocol": "https",
+					"host": [
+						"express-restful-api-mvc",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "626a4ad20165275ade30cdd2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "router",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
